@@ -8,12 +8,12 @@ pipeline {
   stages {
     stage('Status') {
       steps {
-        sh 'liquibase status --url="jdbc:mongodb://192.168.85.8:5431/mongodb" --changeLogFile=app-wrapper.xml --username=$MONGO_CREDENTIALS_USR --password=$MONGO_CREDENTIALS_PSW'
+        sh 'liquibase status --url="mongodb://192.168.85.8:5431/mongodb" --changeLogFile=app-wrapper.xml --username=$MONGO_CREDENTIALS_USR --password=$MONGO_CREDENTIALS_PSW'
       }
     }
     stage('Update') {
       steps {
-        sh 'liquibase update --url="jdbc:mongodb://192.168.85.8:5431/mongodb" --changeLogFile=app-wrapper.xml --username=$MONGO_CREDENTIALS_USR --password=$MONGO_CREDENTIALS_PSW'
+        sh 'liquibase update --url="mongodb://192.168.85.8:5431/mongodb" --changeLogFile=app-wrapper.xml --username=$MONGO_CREDENTIALS_USR --password=$MONGO_CREDENTIALS_PSW'
       }
     }
   }
